@@ -3,10 +3,10 @@ docker build -t ffaneto/java-app-deploy-academia-devops -f Dockerfile .
 docker run -d -p 8081:8081 --name java-app-deploy-academia-devops ffaneto/java-app-deploy-academia-devops
 docker stop java-app-deploy-academia-devops
 
-cd /terraform
-~/terraform/terraform init
-~/terraform/terraform validate
-~/terraform/terraform apply -auto-approve
+cd terraform/
+terraform init
+terraform validate
+terraform apply -auto-approve
 
 echo "Aguardando criação de maquinas ..."
 sleep 10 # 10 segundos
