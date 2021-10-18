@@ -1,25 +1,25 @@
-cd terraform/
+cd terraform/ &
 
-~/terraform  init init
+~/terraform  init init &
 
-~/terraform  init validate
+~/terraform  init validate &
 
-~/terraform  init apply -auto-approve
+~/terraform  init apply -auto-approve &
 
-echo "Aguardando criação de maquinas ..."
+echo "Aguardando criação de maquinas ..." &
 
-sleep 10 # 10 segundos
+sleep 10 &
 
-echo $"[ec2-nodejs]" > ../ansible/hosts # cria arquivo
+echo $"[ec2-nodejs]" > ../ansible/hosts &
 
-echo "$( ~/terraform  init output | awk '{print $3;exit}')" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
+echo "$( ~/terraform  init output | awk '{print $3;exit}')" >> ../ansible/hosts &
 
-echo "Aguardando criação de maquinas ..."
+echo "Aguardando criação de maquinas ..." &
 
-sleep 10 # 20 segundos
+sleep 10 &
 
-cd ../ansible
+cd ../ansible &
 
-ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/.ssh/id_rsa
+ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/.ssh/id_rsa &
 
 cd ../terraform
