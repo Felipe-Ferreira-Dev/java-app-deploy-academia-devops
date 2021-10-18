@@ -1,5 +1,7 @@
 cd terraform/
-echo "entradno do diretório"
+
+echo "entrando no diretório do terraform"
+
 terraform init
 terraform validate
 terraform apply -auto-approve
